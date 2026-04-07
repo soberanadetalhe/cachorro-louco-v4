@@ -1,62 +1,78 @@
 import streamlit as st
+from datetime import datetime
 
-# Versão 4.1 - Estável para Nuvem | 07/04/2026 16:05
-st.set_page_config(page_title="Cachorro Louco V4.1", page_icon="🐶", layout="wide")
+# ==========================================================
+# SISTEMA: CASA RENOVADA (ORÁCULO ECOSYSTEM)
+# VERSÃO: 2.1.0 | LOCAL: GYN | DATA: 07/04/2026 - 16:20
+# STATUS: PRONTO PARA DEPLOY (GITHUB)
+# ==========================================================
 
-# CSS Industrial Dark
-st.markdown("""
-<style>
-    .main { background-color: #0d1010; color: #ffffff; }
-    .stTabs [data-baseweb="tab-list"] { gap: 15px; }
-    .stTabs [data-baseweb="tab"] {
-        height: 50px; background-color: #1a1a1a; color: #facc15; font-weight: bold; border-radius: 5px;
-    }
-    .stTabs [aria-selected="true"] { background-color: #2563eb !important; color: white !important; }
-    div.stButton > button {
-        background-color: #2563eb; color: white; border: 2px solid #facc15; font-weight: bold; width: 100%;
-    }
-</style>
-""", unsafe_allow_html=True)
+def main():
+    # Configurações de Layout
+    st.set_page_config(
+        page_title="Casa Renovada - Estofados & Automotivo",
+        page_icon="🏠",
+        layout="wide"
+    )
 
-# Título Blindado
-st.markdown("""
-<div style="background-color: #1a1a1a; padding: 20px; border-left: 10px solid #facc15; margin-bottom: 20px;">
-    <h1 style="color: white; margin:0;">🐶 CACHORRO LOUCO LAVA JATO </h1>
-    <h1 style="color: white; margin:0;">HIGIENIZAÇÃO PROFISSIONAL</h1>
-    <p style="color: #2563eb; margin:0; font-weight:bold;">Estética Automotiva & Conforto Residencial</p>
-</div>
-""", unsafe_allow_html=True)
+    # --- BANCO DE LINKS DIRETOS (IMG BB) ---
+    URL_BANNER_HOME = "https://i.ibb.co/B5MR52nN/1775581320812.png"
+    URL_CACHORRO_LOUCO = "https://i.ibb.co/mVW7V5N8/1775581320812.png"
+    URL_CARRO = "https://i.ibb.co/6R0pT9L0/1775581320812.jpg" # Ajuste conforme seu link de carro
 
-tab1, tab2, tab3 = st.tabs(["🚗 AUTOMOTIVO", " Couch🛋️ ESTOFADOS E TAPETES", "💰 ORÇAMENTO"])
+    # --- MENU LATERAL ---
+    st.sidebar.image(URL_CACHORRO_LOUCO, caption="Padrão Cachorro Louco 🛠️")
+    st.sidebar.title("MENU DE COMANDO")
+    
+    aba = st.sidebar.radio(
+        "Navegação:",
+        ["🏠 Início", "🚗 Automotivo", "📸 Galeria", "📲 Contato"]
+    )
 
-with tab1:
-    c1, c2 = st.columns(2)
-    with c1:
-        st.markdown("## 🧼 Estética de Elite")
-        st.write("Serviço bruto para quem é exigente.")
-        st.markdown("* Lavagem Técnica de Motor\n* Higienização Detalhada\n* Proteção de Pintura")
-    with c2:
-        # Mantendo a primeira imagem original
-        st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&q=80&w=800")
+    # --- LÓGICA DAS ABAS ---
 
-with tab2:
-    c3, c4 = st.columns(2)
-    with c3:
-        # AQUI ESTÁ O LINK DIRETO QUE RESOLVE O ERRO
-        st.image("https://i.ibb.co/HDKm92Lh/1775581320812.jpg")
-    with c4:
-        st.markdown("## 🏠 Casa Renovada")
-        st.write("Nada de sujeira no seu conforto.")
-        st.markdown("* Higienização de Sofás\n* Limpeza de Tapetes\n* Tratamento de Colchões\n* Atendimento Domiciliar")
-        st.success("✅ Equipamentos de Extração Profissional")
+    if aba == "🏠 Início":
+        st.image(URL_BANNER_HOME, use_container_width=True)
+        st.title("Casa Renovada")
+        st.subheader("Higienização de Estofados e Tapetes em Goiânia")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("""
+            ### Serviços Domiciliares:
+            * ✅ **Sofás e Poltronas**
+            * ✅ **Tapetes e Carpetes**
+            * ✅ **Colchões (Tratamento Anti-ácaro)**
+            * ✅ **Cadeiras de Jantar**
+            """)
+        with col2:
+            st.info("Utilizamos extratoras profissionais de alta sucção.")
 
-with tab3:
-    st.markdown("## 💰 Orçamento")
-    escolha = st.selectbox("O que vamos limpar?", ["Carro", "Sofá", "Tapete", "Combo Total"])
-    if st.button("💬 CHAMAR NO WHATSAPP"):
-        txt = f"Fala Johnny! Orçamento para: {escolha}"
-        link = f"https://wa.me/556291760052?text={txt.replace(' ', '%20')}"
-        st.markdown(f'<a href="{link}" target="_blank" style="text-decoration: none; color: white; background-color: #25d366; padding: 10px; border-radius: 5px; display: block; text-align: center;">CONFIRMAR PEDIDO NO WHATSAPP</a>', unsafe_allow_html=True)
+    elif aba == "🚗 Automotivo":
+        st.header("Estética Automotiva Profissional")
+        st.image(URL_CARRO, width=500)
+        st.markdown("""
+        ### Limpeza Veicular Detalhada:
+        * Higienização de bancos (couro e tecido).
+        * Limpeza de teto e carpetes.
+        * Hidratação de plásticos internos.
+        """)
+        st.button("Solicitar Orçamento Automotivo")
 
-st.markdown("---")
-st.markdown("<center><b>Cachorro Louco GYN © 2026 | Powered by Oráculo System</b></center>", unsafe_allow_html=True)
+    elif aba == "📸 Galeria":
+        st.header("Galeria de Resultados")
+        cols = st.columns(2)
+        cols[0].image(URL_BANNER_HOME, caption="Antes/Depois 01")
+        cols[1].image(URL_CACHORRO_LOUCO, caption="Equipe em Ação")
+
+    elif aba == "📲 Contato":
+        st.header("Fale com o Oráculo")
+        st.write("Agende sua visita técnica pelo WhatsApp.")
+        st.success("📱 (62) 9XXXX-XXXX")
+
+    # Rodapé Técnico
+    st.markdown("---")
+    st.caption(f"Operador: Johnny | GYN Pro Mundo | {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+
+if __name__ == "__main__":
+    main()
