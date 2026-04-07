@@ -1,9 +1,9 @@
 import streamlit as st
 
-# Versão 5.3 - Premium Home & Auto | 07/04/2026 17:45
+# Versão 5.5 - Premium Home Correction | 07/04/2026 17:50
 st.set_page_config(page_title="Cachorro Louco GYN", page_icon="🧼", layout="wide")
 
-# CSS Industrial Dark (Padrão Oráculo)
+# CSS Industrial Dark Refinado
 st.markdown("""
 <style>
     .main { background-color: #050505; color: #e0e0e0; }
@@ -14,14 +14,14 @@ st.markdown("""
     }
     .stTabs [aria-selected="true"] { background-color: #2563eb !important; color: white !important; }
     
-    img { border-radius: 12px; border: 1px solid #333; object-fit: cover; }
+    img { border-radius: 12px; border: 1px solid #333; object-fit: cover; width: 100%; height: 350px; }
 </style>
 """, unsafe_allow_html=True)
 
 # Botão Flutuante WhatsApp
 st.markdown(f"""
     <a href="https://wa.me/556291760052" style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 2px 2px 10px rgba(0,0,0,0.5);z-index:100;" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:100%; padding:10px; border:none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:100%; padding:10px; border:none; height:auto;">
     </a>
 """, unsafe_allow_html=True)
 
@@ -33,62 +33,75 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["🏎️ AUTOMOTIVO (ELITE)", "🛋️ ESTOFADOS & CARPETES", "🗓️ AGENDAMENTO"])
+tab1, tab2, tab3 = st.tabs(["🚗 AUTOMOTIVO (ELITE)", "🛋️ RESIDENCIAL (ESTOFADOS)", "🗓️ AGENDAMENTO"])
 
 with tab1:
-    st.markdown("### 🏎️ O Padrão de Elite")
+    st.markdown("### 🏎️ Lavagem Técnica e Detalhamento")
     c1, c2 = st.columns(2)
     with c1:
-        # A FOTO TOP (Mão no capô preto / Tatuagem)
-        st.image("https://images.unsplash.com/photo-1605414654535-43ea237691f1?q=80&w=1000", caption="Detalhamento Técnico de Alta Performance")
+        # A FOTO TOP (Mão no capô preto / Tatuagem) - Mantida conforme solicitado
+        st.image("https://images.unsplash.com/photo-1605414654535-43ea237691f1?q=80&w=1000", caption="Reflexo Profundo e Detalhamento Técnico")
     with c2:
         # Foto Snow Foam / Espuma
         st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Lavagem Técnica com Snow Foam")
 
 with tab2:
-    st.markdown("### 🛋️ Tratamento em Estofados e Carpetes de Veludo")
+    st.markdown("### 🛋️ Especialista em Estofados de Veludo e Carpetes")
     
     col_e1, col_e2 = st.columns(2)
     with col_e1:
-        # Foto de Sofá de Veludo sendo limpo/aspirado
-        st.image("https://images.unsplash.com/photo-1556912177-c54030639a67?q=80&w=1000", 
-                 caption="Higienização de Sofás e Poltronas de Luxo")
-        st.markdown("#### ✅ Sofás e Poltronas")
-        st.write("Limpeza profunda em tecidos delicados como veludo, linho e camurça.")
+        # Foto de Poltrona de Veludo de alto padrão em sala de luxo (Para substituir a quebra)
+        st.image("https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=1000", 
+                 caption="Higienização de Poltronas e Cadeiras de Design")
+        st.markdown("#### ✅ Puffs e Poltronas")
+        st.write("Limpeza técnica em tecidos finos. Removemos manchas e ácaros preservando a maciez do veludo.")
     
     with col_e2:
-        # Foto de Tapete de alto padrão (Veludo/Carpete)
-        st.image("https://images.unsplash.com/photo-1600166898405-da9535204843?q=80&w=1000", 
-                 caption="Renovação de Carpetes e Tapetes")
-        st.markdown("#### ✅ Carpetes e Tapetes")
-        st.write("Extração industrial que remove a sujeira da base do carpete, restaurando o toque macio.")
+        # Foto de Sofá de Veludo de alto padrão em sala de luxo (Correção da cadeira de madeira)
+        st.image("https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1000", 
+                 caption="Higienização de Sofás e Puffs de Luxo")
+        st.markdown("#### ✅ Sofás")
+        st.write("Seu sofá renovado. Tecnologia de extração que elimina fungos, ácaros e sujeira incrustada.")
 
     st.divider()
     
     col_e3, col_e4 = st.columns(2)
     with col_e3:
-        # Foto de Puffs ou cadeiras decorativas sendo higienizadas
-        st.image("https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000", 
-                 caption="Higienização de Puffs e Mobiliário")
+        # Foto: Close em carpete de veludo/sala decorada (Para complementar)
+        st.image("https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?q=80&w=1000", 
+                 caption="Extração Profunda em Carpetes e Tapetes")
     with col_e4:
-        st.markdown("#### ✅ Especialista em Puffs e Veludos")
+        st.markdown("#### ✅ Por que escolher o Cachorro Louco?")
         st.info("""
-        - **Tecnologia de Extração:** Removemos ácaros e manchas sem molhar a estrutura.
-        - **Cuidado com Veludo:** Produtos específicos para manter o brilho do tecido.
-        - **Puffs e Almofadas:** Higienização completa de itens de decoração.
+        - **Equipamentos Profissionais:** Extratoras de alta sucção.
+        - **Atendimento Domiciliar:** Conforto total para você em Goiânia.
+        - **Secagem Rápida:** Técnica que evita mofo e mau cheiro.
+        - **Foco em Saúde:** Eliminação de 99% dos ácaros e bactérias.
         """)
 
 with tab3:
-    st.markdown("### 🗓️ Agendamento Via WhatsApp")
-    servico = st.selectbox("Selecione o serviço:", 
-                           ["Lavagem Técnica Automotiva", "Limpeza de Sofá (Veludo/Linho)", "Limpeza de Carpete/Tapete", "Higienização de Puffs/Poltronas"])
-    
-    data = st.date_input("Preferência de data:")
-    
-    if st.button("🚀 CHAMAR JOHNNY NO WHATSAPP"):
-        msg = f"Fala Johnny! Gostaria de um orçamento para {servico} para o dia {data}."
-        link = f"https://wa.me/556291760052?text={msg.replace(' ', '%20')}"
-        st.markdown(f'<a href="{link}" target="_blank" style="text-decoration:none;"><div style="background-color:#25d366; color:white; padding:15px; text-align:center; border-radius:10px; font-weight:bold;">ABRIR CONVERSA AGORA</div></a>', unsafe_allow_html=True)
+    st.markdown("### 🗓️ Reservar seu Horário Instantaneamente")
+    with st.form("agendamento"):
+        servico = st.selectbox("O que vamos transformar hoje?", 
+                               ["Lavagem Técnica (Carro Luxo)", "Polimento e Proteção", "Higienização de Sofá (Veludo)", "Limpeza de Tapetes/Carpetes", "Combo Carro + Casa"])
+        
+        data = st.date_input("Preferência de data:")
+        
+        obs = st.text_input("Alguma observação específica?")
+        
+        st.write("---")
+        submit = st.form_submit_button("🚀 ENVIAR SOLICITAÇÃO VIA WHATSAPP")
+        
+        if submit:
+            msg = f"Fala Johnny! Quero agendar: {servico} para o dia {data}. Obs: {obs}. Vi no site do Cachorro Louco!"
+            link = f"https://wa.me/556291760052?text={msg.replace(' ', '%20')}"
+            st.markdown(f'''
+                <a href="{link}" target="_blank" style="text-decoration:none;">
+                    <button style="width:100%; height:50px; background-color:#25d366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">
+                        ABRIR CONVERSA NO WHATSAPP
+                    </button>
+                </a>
+            ''', unsafe_allow_html=True)
 
 st.markdown("---")
 st.markdown("<center><b>Cachorro Louco GYN © 2026 | Powered by Oráculo System</b></center>", unsafe_allow_html=True)
