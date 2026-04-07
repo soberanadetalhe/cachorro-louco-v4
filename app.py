@@ -83,7 +83,7 @@ with tab3:
     st.markdown("### 🗓️ Reservar seu Horário Instantaneamente")
     with st.form("agendamento"):
         servico = st.selectbox("O que vamos transformar hoje?", 
-                               ["Lavagem Técnica (Carro Luxo)", "Polimento e Proteção", "Higienização de Sofá (Veludo)", "Limpeza de Tapetes/Carpetes", "Combo Carro + Casa"])
+                               ["Lavagem Técnica (Carro )", " Proteção", "Higienização de Sofá (Veludo)", "Limpeza de Tapetes/Carpetes", "Combo Carro + Casa"])
         
         data = st.date_input("Preferência de data:")
         
