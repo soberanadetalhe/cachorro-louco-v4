@@ -39,8 +39,7 @@ with tab1:
     st.markdown("### 🏎️ Lavagem Técnica e Detalhamento")
     c1, c2 = st.columns(2)
     with c1:
-        # A FOTO TOP (Mão no capô preto / Tatuagem) - Mantida conforme solicitado
-        st.image("https://images.unsplash.com/photo-1605414654535-43ea237691f1?q=80&w=1000", caption="Reflexo Profundo e Detalhamento Técnico")
+        #"Reflexo Profundo e Detalhamento Técnico")
     with c2:
         # Foto Snow Foam / Espuma
         st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Lavagem Técnica com Snow Foam")
