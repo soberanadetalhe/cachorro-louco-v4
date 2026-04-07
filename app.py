@@ -61,7 +61,7 @@ with tab2:
 
     col_e1, col_e2 = st.columns(2)
     with col_e1:
-        st.image("https://i.ibb.co/ynKgCXMV/1775580081625.png", caption="Higienização de Poltronas")
+        st.image("https://i.ibb.co/dsv4BQH7/1775603861601.png", caption="Higienização de Poltronas")
         st.markdown("#### ✅ Puffs e Poltronas")
         st.write("Limpeza técnica em tecidos finos. Removemos manchas e ácaros.")
 
@@ -74,7 +74,7 @@ with tab2:
 
     col_e3, col_e4 = st.columns(2)
     with col_e3:
-        st.image("https://i.ibb.co/N6rcq709/1775580086384.png", caption="Extração em Carpetes e Tapetes")
+        st.image("https://i.ibb.co/1t6ZpSx4/1775603874804.png", caption="Extração em Carpetes e Tapetes")
     with col_e4:
         st.markdown("#### ✅ Por que escolher o Cachorro Louco?")
         st.info("""
