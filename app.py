@@ -43,7 +43,7 @@ with tab2:
     c3, c4 = st.columns(2)
     with c3:
         # Foto de Limpeza de Sofá (Fazendo sentido agora!)
-        st.image("https://images.unsplash.com/photo-1550963039-61e3c399a6a6?auto=format&fit=crop&q=80&w=800")
+        st.image(https://ibb.co/B5MR52nN)
     with c4:
         st.markdown("## 🛋️ Casa Renovada")
         st.write("Nada de sujeira no seu conforto.")
