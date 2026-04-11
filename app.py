@@ -1,4 +1,3 @@
-y
 import streamlit as st
 
 # Versão 5.5 - Premium Home Correction | 07/04/2026 17:50
