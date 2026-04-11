@@ -1,55 +1,63 @@
 import streamlit as st
 from datetime import datetime
 
-# --- VERSÃO DO APP E DATA/HORA AUTOMÁTICA ---
-APP_VERSION = "5.6.1 - Full Integration"
-CURRENT_TIME = datetime.now().strftime("%d/%04/%Y %H:%M:%S")
+# --- CONFIGURAÇÕES INICIAIS ---
+# Versão do App e Horário Automático (Buscando o tempo atual)
+APP_VERSION = "5.6.2 - Premium Identity"
+CURRENT_TIME = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
-# Configuração da página (Nome e ícone personalizados para o PWA)
+# Link da imagem enviada para ser o ícone do App (Favicon)
+LOGO_URL = "https://i.ibb.co/mVW7V5N8/1775581320812.png"
+
+# O set_page_config PRECISA ser o primeiro comando Streamlit
 st.set_page_config(
     page_title="Cachorro Louco GYN", 
-    page_icon="🧼", 
+    page_icon=LOGO_URL, 
     layout="wide"
 )
 
-# CSS Industrial Dark Refinado
-st.markdown("""
+# --- ESTILIZAÇÃO CSS CUSTOMIZADA ---
+st.markdown(f"""
 <style>
-    .main { background-color: #050505; color: #e0e0e0; }
-    .stTabs [data-baseweb="tab-list"] { gap: 10px; }
-    .stTabs [data-baseweb="tab"] {
+    .main {{ background-color: #050505; color: #e0e0e0; }}
+    
+    /* Personalização das Abas */
+    .stTabs [data-baseweb="tab-list"] {{ gap: 10px; }}
+    .stTabs [data-baseweb="tab"] {{
         height: 60px; background-color: #111; color: #facc15;
         font-weight: bold; border-radius: 8px 8px 0 0; border: 1px solid #222;
-    }
-    .stTabs [aria-selected="true"] { background-color: #2563eb !important; color: white !important; }
+    }}
+    .stTabs [aria-selected="true"] {{ background-color: #2563eb !important; color: white !important; }}
 
-    img { border-radius: 12px; border: 1px solid #333; object-fit: cover; width: 100%; height: 350px; }
+    /* Imagens do Portfólio */
+    img {{ border-radius: 12px; border: 1px solid #333; object-fit: cover; width: 100%; height: 350px; }}
     
     /* Botão flutuante WhatsApp */
-    .float-wa {
+    .float-wa {{
         position:fixed; width:60px; height:60px; bottom:40px; right:40px; 
         background-color:#25d366; color:#FFF; border-radius:50px; 
-        text-align:center; box-shadow: 2px 2px 3px #999; z-index:1000;
-    }
+        text-align:center; box-shadow: 2px 2px 3px #000; z-index:1000;
+        display: flex; align-items: center; justify-content: center;
+    }}
     
-    /* Estilo da Versão */
-    .version-tag {
-        color: #666; font-size: 0.8rem; text-align: right; margin-bottom: 10px;
-    }
+    /* Tag de Versão e Tempo */
+    .version-tag {{
+        color: #555; font-size: 0.75rem; text-align: right; margin-bottom: 5px; font-family: monospace;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
-# Exibição da Versão e Horário no topo
+# Exibição da Versão e Horário no topo direito
 st.markdown(f'<div class="version-tag">v{APP_VERSION} | {CURRENT_TIME}</div>', unsafe_allow_html=True)
 
-# Botão Flutuante WhatsApp
+# Botão Flutuante WhatsApp (Link Direto)
 st.markdown("""
     <a href="https://wa.me/556291760052" class="float-wa" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:100%; padding:10px; border:none; height:auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px; height:35px; border:none;">
     </a>
 """, unsafe_allow_html=True)
 
-# Header com degradê
+# Header Principal
 st.markdown("""
 <div style="background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%); padding: 25px; border-left: 10px solid #2563eb; border-radius: 10px; margin-bottom: 25px;">
     <h1 style="color: white; margin:0; letter-spacing: 2px;">🧼 CACHORRO LOUCO GYN</h1>
@@ -57,6 +65,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# Organização por Abas
 tab1, tab2, tab3 = st.tabs(["🚗 AUTOMOTIVO (ELITE)", "🛋️ RESIDENCIAL (ESTOFADOS)", "🗓️ AGENDAMENTO"])
 
 # --- ABA 1: AUTOMOTIVO ---
@@ -65,7 +74,7 @@ with tab1:
     c1, c2, c3 = st.columns(3)
     
     with c1:
-        st.image("https://i.ibb.co/mVW7V5N8/1775581320812.png", caption="Reflexo Profundo e Detalhamento Técnico")
+        st.image(LOGO_URL, caption="Reflexo Profundo e Detalhamento Técnico")
     with c2:
         st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Lavagem Técnica com Snow Foam")
     with c3:
@@ -123,5 +132,6 @@ with tab3:
                 </a>
             ''', unsafe_allow_html=True)
 
+# Rodapé final
 st.markdown("---")
 st.markdown("<center><b>Cachorro Louco GYN © 2026 | Powered by Oráculo System</b></center>", unsafe_allow_html=True)
