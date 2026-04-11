@@ -1,137 +1,143 @@
 import streamlit as st
 from datetime import datetime
 
-# --- CONFIGURAÇÕES INICIAIS ---
-# Versão do App e Horário Automático (Buscando o tempo atual)
-APP_VERSION = "5.6.2 - Premium Identity"
-CURRENT_TIME = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+# --- CONFIGURAÇÕES DE IDENTIDADE ---
+APP_VERSION = "6.0.0 - Mobile Detail Focus"
+CURRENT_TIME = datetime.now().strftime("%d/%m/%Y %H:%M")
+LOGO_URL = "https://i.ibb.co/mVW7V5N8/1775581320812.png" # Sua foto do GTR
+FOTO_TRABALHO = "https://i.ibb.co/WNB5pNMx/1775581194742.png" # Sua foto da mão no capô
 
-# Link da imagem enviada para ser o ícone do App (Favicon)
-LOGO_URL = "https://i.ibb.co/mVW7V5N8/1775581320812.png"
-
-# O set_page_config PRECISA ser o primeiro comando Streamlit
 st.set_page_config(
     page_title="Cachorro Louco GYN", 
     page_icon=LOGO_URL, 
     layout="wide"
 )
 
-# --- ESTILIZAÇÃO CSS CUSTOMIZADA ---
+# --- ESTILO INDUSTRIAL DARK ---
 st.markdown(f"""
 <style>
-    .main {{ background-color: #050505; color: #e0e0e0; }}
-    
-    /* Personalização das Abas */
-    .stTabs [data-baseweb="tab-list"] {{ gap: 10px; }}
+    .main {{ background-color: #0a0a0a; color: #f0f0f0; }}
+    .stTabs [data-baseweb="tab-list"] {{ gap: 8px; }}
     .stTabs [data-baseweb="tab"] {{
-        height: 60px; background-color: #111; color: #facc15;
-        font-weight: bold; border-radius: 8px 8px 0 0; border: 1px solid #222;
+        height: 50px; background-color: #111; color: #facc15;
+        font-weight: bold; border-radius: 5px; border: 1px solid #333;
     }}
     .stTabs [aria-selected="true"] {{ background-color: #2563eb !important; color: white !important; }}
-
-    /* Imagens do Portfólio */
-    img {{ border-radius: 12px; border: 1px solid #333; object-fit: cover; width: 100%; height: 350px; }}
     
-    /* Botão flutuante WhatsApp */
-    .float-wa {{
-        position:fixed; width:60px; height:60px; bottom:40px; right:40px; 
-        background-color:#25d366; color:#FFF; border-radius:50px; 
-        text-align:center; box-shadow: 2px 2px 3px #000; z-index:1000;
-        display: flex; align-items: center; justify-content: center;
+    .card-servico {{
+        background: #151515; padding: 20px; border-radius: 15px;
+        border-top: 5px solid #2563eb; margin-bottom: 20px;
     }}
     
-    /* Tag de Versão e Tempo */
-    .version-tag {{
-        color: #555; font-size: 0.75rem; text-align: right; margin-bottom: 5px; font-family: monospace;
-    }}
+    img {{ border-radius: 10px; border: 1px solid #222; }}
+    
+    .version-tag {{ color: #444; font-size: 0.7rem; text-align: right; font-family: monospace; }}
 </style>
 """, unsafe_allow_html=True)
 
-# Exibição da Versão e Horário no topo direito
 st.markdown(f'<div class="version-tag">v{APP_VERSION} | {CURRENT_TIME}</div>', unsafe_allow_html=True)
 
-# Botão Flutuante WhatsApp (Link Direto)
+# --- HEADER ---
 st.markdown("""
-    <a href="https://wa.me/556291760052" class="float-wa" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:35px; height:35px; border:none;">
-    </a>
-""", unsafe_allow_html=True)
-
-# Header Principal
-st.markdown("""
-<div style="background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%); padding: 25px; border-left: 10px solid #2563eb; border-radius: 10px; margin-bottom: 25px;">
-    <h1 style="color: white; margin:0; letter-spacing: 2px;">🧼 CACHORRO LOUCO GYN</h1>
-    <p style="color: #facc15; margin:0; font-weight: bold;">ESTÉTICA AUTOMOTIVA & RESIDENCIAL DE ALTO PADRÃO</p>
+<div style="background: linear-gradient(90deg, #000 0%, #111 100%); padding: 30px; border-left: 10px solid #2563eb; border-radius: 10px;">
+    <h1 style="color: white; margin:0;">🧼 CACHORRO LOUCO GYN</h1>
+    <p style="color: #facc15; margin:0; font-weight: bold; letter-spacing: 1px;">DETALHAMENTO AUTOMOTIVO MOBILE • GOIÂNIA</p>
 </div>
 """, unsafe_allow_html=True)
 
-# Organização por Abas
-tab1, tab2, tab3 = st.tabs(["🚗 AUTOMOTIVO (ELITE)", "🛋️ RESIDENCIAL (ESTOFADOS)", "🗓️ AGENDAMENTO"])
+# --- SEÇÃO PRINCIPAL ---
+st.write("")
+col_main1, col_main2 = st.columns([1.2, 1])
 
-# --- ABA 1: AUTOMOTIVO ---
-with tab1:
-    st.markdown("### 🏎️ Lavagem Técnica e Detalhamento")
-    c1, c2, c3 = st.columns(3)
-    
-    with c1:
-        st.image(LOGO_URL, caption="Reflexo Profundo e Detalhamento Técnico")
-    with c2:
-        st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Lavagem Técnica com Snow Foam")
-    with c3:
-        st.image("https://i.ibb.co/WNB5pNMx/1775581194742.png", caption="Trabalho de Precisão")
+with col_main1:
+    st.image(LOGO_URL, use_container_width=True, caption="Qualidade Cachorro Louco GYN")
+    st.markdown("### 🛠️ Lavagem de Verdade, Onde Você Estiver")
+    st.write("""
+    Não fazemos apenas uma lavagem, entregamos renovação. 
+    Especialistas em limpeza técnica sem o uso de máquinas de polimento pesadas, 
+    focando na integridade da pintura e no brilho instantâneo com ceras premium.
+    """)
 
-# --- ABA 2: RESIDENCIAL ---
-with tab2:
-    st.markdown("### 🛋️ Especialista em Estofados de Veludo e Carpetes")
+with col_main2:
+    st.image(FOTO_TRABALHO, use_container_width=True, caption="Cuidado em cada detalhe")
+    st.info("📍 Atendimento no Setor São José e Região.")
 
-    col_e1, col_e2 = st.columns(2)
-    with col_e1:
-        st.image("https://i.ibb.co/dsv4BQH7/1775603861601.png", caption="Higienização de Poltronas")
-        st.markdown("#### ✅ Puffs e Poltronas")
-        st.write("Limpeza técnica em tecidos finos. Removemos manchas e ácaros.")
+st.divider()
 
-    with col_e2:
-        st.image("https://i.ibb.co/bgFx4B8v/1775580077842.png", caption="Higienização de Sofás de Luxo")
-        st.markdown("#### ✅ Sofás")
-        st.write("Seu sofá renovado com tecnologia de extração profunda.")
+# --- OS 3 NÍVEIS DE LAVAGEM ---
+st.markdown("## 📊 Nossos Níveis de Limpeza")
+t1, t2, t3, t4 = st.tabs(["LÍVEL 1 (ESSENCIAL)", "NÍVEL 2 (INTERMEDIÁRIO)", "NÍVEL 3 (COMPLETO)", "🧼 TAPETES"])
 
-    st.divider()
+with t1:
+    st.markdown("""
+    <div class="card-servico">
+        <h3>🚗 Nível 1 - Essencial</h3>
+        <ul>
+            <li>Lavagem externa detalhada</li>
+            <li>Limpeza de caixas de roda</li>
+            <li>Pretinho nos pneus (Acabamento Dry)</li>
+            <li><b>Acabamento:</b> Aplicação de cera líquida rápida</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.image("https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?q=80&w=1000", caption="Foco em brilho externo")
 
-    col_e3, col_e4 = st.columns(2)
-    with col_e3:
-        st.image("https://i.ibb.co/1t6ZpSx4/1775603874804.png", caption="Extração em Carpetes e Tapetes")
-    with col_e4:
-        st.markdown("#### ✅ Por que escolher o Cachorro Louco?")
-        st.info("""
-        - **Equipamentos Profissionais:** Extratoras de alta sucção.
-        - **Atendimento Domiciliar:** Conforto total em Goiânia.
-        - **Secagem Rápida:** Técnica que evita mofo.
-        - **Saúde:** Eliminação de 99% dos ácaros e bactérias.
-        """)
+with t2:
+    st.markdown("""
+    <div class="card-servico">
+        <h3>💎 Nível 2 - Intermediário</h3>
+        <ul>
+            <li>Tudo do Nível 1 +</li>
+            <li>Aspiração interna completa</li>
+            <li>Revitalização de plásticos (Proteção UV)</li>
+            <li>Limpeza de painel e guarnições</li>
+            <li><b>Acabamento:</b> Cera líquida de alta fixação</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Cuidado interno e externo")
 
-# --- ABA 3: AGENDAMENTO ---
-with tab3:
-    st.markdown("### 🗓️ Reservar seu Horário Instantaneamente")
-    with st.form("agendamento"):
-        servico = st.selectbox("O que vamos transformar hoje?",
-                               ["Lavagem (Carro)", "Proteção no acabamento", "Higienização de Sofá (Veludo)", "Limpeza de Tapetes/Carpetes", "Combo Completo"])
+with t3:
+    st.markdown("""
+    <div class="card-servico">
+        <h3>👑 Nível 3 - Master Detalhe</h3>
+        <ul>
+            <li>Tudo do Nível 2 +</li>
+            <li>Lavagem técnica de motor (Segura)</li>
+            <li>Limpeza profunda dos bancos</li>
+            <li>Higienização de carpetes</li>
+            <li>Condicionamento de borrachas</li>
+            <li><b>Acabamento:</b> Proteção total com cera premium</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.image("https://images.unsplash.com/photo-1552930294-6b595f4c2974?q=80&w=1000", caption="O tratamento completo para quem é exigente")
 
-        data = st.date_input("Preferência de data:")
-        obs = st.text_input("Alguma observação específica?")
+with t4:
+    st.markdown("""
+    <div class="card-servico">
+        <h3>🧹 Lavagem de Tapetes</h3>
+        <p>Traga seu tapete residencial ou automotivo! Lavagem com extratora e secagem controlada.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    st.image("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000", caption="Limpeza profunda de fibras")
 
-        submit = st.form_submit_button("🚀 ENVIAR SOLICITAÇÃO VIA WHATSAPP")
+# --- GALERIA DE RUA (FOTOS ALEATÓRIAS DE APOIO) ---
+st.divider()
+st.markdown("### 📸 Nosso Dia a Dia na Calçada")
+g1, g2, g3 = st.columns(3)
+with g1:
+    st.image("https://images.pexels.com/photos/3354648/pexels-photo-3354648.jpeg?auto=compress&cs=tinysrgb&w=1000", caption="Espuma ativa")
+with g2:
+    st.image("https://images.pexels.com/photos/3728122/pexels-photo-3728122.jpeg?auto=compress&cs=tinysrgb&w=1000", caption="Limpeza de rodas")
+with g3:
+    st.image("https://images.pexels.com/photos/1144410/pexels-photo-1144410.jpeg?auto=compress&cs=tinysrgb&w=1000", caption="Detalhes internos")
 
-        if submit:
-            msg = f"Fala Johnny! Quero agendar: {servico} para o dia {data}. Obs: {obs}. Vi no site do Cachorro Louco!"
-            link = f"https://wa.me/556291760052?text={msg.replace(' ', '%20')}"
-            st.markdown(f'''
-                <a href="{link}" target="_blank" style="text-decoration:none;">
-                    <div style="width:100%; height:50px; background-color:#25d366; color:white; border-radius:5px; font-weight:bold; display:flex; align-items:center; justify-content:center;">
-                        ABRIR CONVERSA NO WHATSAPP
-                    </div>
-                </a>
-            ''', unsafe_allow_html=True)
+# --- AGENDAMENTO WHATSAPP ---
+st.write("")
+if st.button("🚀 AGENDAR MINHA LAVAGEM AGORA", use_container_width=True):
+    msg = "Olá Johnny! Vi o site e quero agendar uma lavagem técnica no meu carro."
+    link = f"https://wa.me/556291760052?text={msg.replace(' ', '%20')}"
+    st.markdown(f'<meta http-equiv="refresh" content="0;URL={link}">', unsafe_allow_html=True)
 
-# Rodapé final
-st.markdown("---")
-st.markdown("<center><b>Cachorro Louco GYN © 2026 | Powered by Oráculo System</b></center>", unsafe_allow_html=True)
+st.markdown("<br><center><b>Cachorro Louco GYN © 2026 | Powered by Oráculo System</b></center>", unsafe_allow_html=True)
