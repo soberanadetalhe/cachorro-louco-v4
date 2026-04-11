@@ -1,9 +1,18 @@
 import streamlit as st
+from datetime import datetime
 
-# Versão 5.6 - Full Integration | 07/04/2026 19:55
-st.set_page_config(page_title="Cachorro Louco GYN", page_icon="🧼", layout="wide")
+# --- VERSÃO DO APP E DATA/HORA AUTOMÁTICA ---
+APP_VERSION = "5.6.1 - Full Integration"
+CURRENT_TIME = datetime.now().strftime("%d/%04/%Y %H:%M:%S")
 
-# CSS Industrial Dark Refinado - Corrigido e sem cortes
+# Configuração da página (Nome e ícone personalizados para o PWA)
+st.set_page_config(
+    page_title="Cachorro Louco GYN", 
+    page_icon="🧼", 
+    layout="wide"
+)
+
+# CSS Industrial Dark Refinado
 st.markdown("""
 <style>
     .main { background-color: #050505; color: #e0e0e0; }
@@ -22,8 +31,16 @@ st.markdown("""
         background-color:#25d366; color:#FFF; border-radius:50px; 
         text-align:center; box-shadow: 2px 2px 3px #999; z-index:1000;
     }
+    
+    /* Estilo da Versão */
+    .version-tag {
+        color: #666; font-size: 0.8rem; text-align: right; margin-bottom: 10px;
+    }
 </style>
 """, unsafe_allow_html=True)
+
+# Exibição da Versão e Horário no topo
+st.markdown(f'<div class="version-tag">v{APP_VERSION} | {CURRENT_TIME}</div>', unsafe_allow_html=True)
 
 # Botão Flutuante WhatsApp
 st.markdown("""
@@ -32,7 +49,7 @@ st.markdown("""
     </a>
 """, unsafe_allow_html=True)
 
-# Header com degradê corrigido
+# Header com degradê
 st.markdown("""
 <div style="background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%); padding: 25px; border-left: 10px solid #2563eb; border-radius: 10px; margin-bottom: 25px;">
     <h1 style="color: white; margin:0; letter-spacing: 2px;">🧼 CACHORRO LOUCO GYN</h1>
@@ -45,14 +62,13 @@ tab1, tab2, tab3 = st.tabs(["🚗 AUTOMOTIVO (ELITE)", "🛋️ RESIDENCIAL (EST
 # --- ABA 1: AUTOMOTIVO ---
 with tab1:
     st.markdown("### 🏎️ Lavagem Técnica e Detalhamento")
-    c1, c2, c3 = st.columns(3) # Corrigido: adicionada a vírgula
+    c1, c2, c3 = st.columns(3)
     
     with c1:
         st.image("https://i.ibb.co/mVW7V5N8/1775581320812.png", caption="Reflexo Profundo e Detalhamento Técnico")
     with c2:
         st.image("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1000", caption="Lavagem Técnica com Snow Foam")
     with c3:
-        # Foto solicitada: Mão no capô preto / Tatuagem
         st.image("https://i.ibb.co/WNB5pNMx/1775581194742.png", caption="Trabalho de Precisão")
 
 # --- ABA 2: RESIDENCIAL ---
